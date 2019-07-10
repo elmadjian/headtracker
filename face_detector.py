@@ -51,10 +51,7 @@ class FaceDetector():
 
 
     def __detect_facial_points(self, shape, frame):
-        p_ends = [
-            [2,15],  [1,14], [5,24], [11,19],
-            [10,20], [6,23]
-        ]
+        p_ends = [[2,14], [27,8]]
         p_med = 30
         dists = self.__get_dists(p_ends, p_med, shape)
         face_points = np.vstack((shape[0:36], shape[48:]))
@@ -68,8 +65,7 @@ class FaceDetector():
             d1 = np.linalg.norm(shape[p_med]-shape[p1])
             d2 = np.linalg.norm(shape[p_med]-shape[p2])
             dt = d1 + d2
-            dists.append(d1/dt)
-            dists.append(d2/dt)
+            dists.append([d1/dt, d2/dt])
         return dists
 
 
