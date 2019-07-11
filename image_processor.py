@@ -4,12 +4,8 @@ import numpy as np
 
 class ImageProcessor():
 
-    def __init__(self, max_class=1000):
-        self.head_data = []
-        self.le_imgs   = []
-        self.re_imgs   = []
-        self.grid      = []
-        self.max_class_len = max_class
+    def __init__(self):
+        pass
 
     def crop_img(self, box, img):
         b = box
